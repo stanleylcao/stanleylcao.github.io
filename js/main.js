@@ -39,6 +39,13 @@ function applyLang(lang) {
       el.textContent = translations[key][lang];
     }
   });
+
+  // Toggle button shows CJK text ("中文") in English mode and Latin ("EN")
+  // in Chinese mode — set its lang so the correct font renders.
+  var toggleBtn = document.querySelector('.lang-toggle');
+  if (toggleBtn) {
+    toggleBtn.lang = lang === 'en' ? 'zh' : 'en';
+  }
 }
 
 function toggleLang() {
@@ -51,7 +58,7 @@ function formatDate(dateStr, lang) {
   if (!dateStr) return '';
   var date = new Date(dateStr + 'T00:00:00');
   var locale = lang === 'zh' ? 'zh-CN' : lang === 'ja' ? 'ja-JP' : 'en-US';
-  return new Intl.DateTimeFormat(locale, { year: 'numeric', month: 'long' }).format(date);
+  return new Intl.DateTimeFormat(locale, { year: 'numeric', month: 'long', day: 'numeric' }).format(date);
 }
 
 // ---- Essay List (essays.html) ----

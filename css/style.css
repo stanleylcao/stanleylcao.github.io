@@ -10,8 +10,9 @@
 
 /* ---- Variables ---- */
 :root {
-  --font-serif: 'Cormorant Garamond', 'Noto Serif SC', 'Noto Serif JP', Georgia, 'Times New Roman', serif;
-  --font-zh: 'Noto Serif SC', 'Cormorant Garamond', Georgia, serif;
+  --font-serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-zh: 'LXGW WenKai', 'KaiTi', 'STKaiti', serif;
+  --font-zh-display: 'Ma Shan Zheng', 'LXGW WenKai', 'KaiTi', serif;
   --font-ja: 'Noto Serif JP', 'Cormorant Garamond', Georgia, serif;
 
   --bg: #faf8f4;
@@ -78,6 +79,30 @@ html.lang-zh body {
 
 [lang="ja"] {
   font-family: var(--font-ja);
+}
+
+/*
+  Hybrid Chinese typography:
+  - Body text: LXGW WenKai (楷书, readable, structured)
+  - Headings & display: Ma Shan Zheng (行楷, artistic flair)
+
+  These rules are scoped so that ONLY Chinese content and Chinese
+  site chrome get the display font. English/Japanese content is
+  never affected, even when the site is toggled to Chinese.
+*/
+
+/* Chinese content headings — always use display font */
+[lang="zh"] :is(h1, h2, h3, h4, h5, h6),
+[lang="zh"] .essay-title {
+  font-family: var(--font-zh-display);
+  font-weight: 400;
+}
+
+/* Site chrome headings — display font only in Chinese mode */
+html.lang-zh .page-header h1,
+html.lang-zh .hero h1 {
+  font-family: var(--font-zh-display);
+  font-weight: 400;
 }
 
 /* ---- Typography ---- */
