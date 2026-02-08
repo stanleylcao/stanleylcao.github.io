@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>A Curious Critter</title>
+  <title>Essays — A Curious Critter</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Serif+SC:wght@400;600&family=Noto+Serif+JP:wght@400;600&display=swap">
@@ -16,30 +16,32 @@
       <a href="index.html" data-i18n="site_name">A Curious Critter</a>
     </div>
     <ul class="nav-links">
-      <li><a href="essays.html" data-i18n="nav_essays">Essays</a></li>
+      <li><a href="essays.html" class="active" data-i18n="nav_essays">Essays</a></li>
       <li><a href="quotes.html" data-i18n="nav_quotes">Quotes</a></li>
       <li><button class="lang-toggle" onclick="toggleLang()" data-i18n="lang_toggle">中文</button></li>
     </ul>
   </nav>
 
   <main>
-    <section class="hero">
-      <h1 data-i18n="hero_title">A Curious Critter</h1>
-      <p class="bio" data-i18n="hero_bio">I used to do things. Now I do other things.</p>
-    </section>
+    <header class="page-header">
+      <h1 data-i18n="essays_title">Essays</h1>
+    </header>
 
-    <div class="separator">· · ·</div>
+    <div class="lang-filter">
+      <button class="active" data-filter="all" data-i18n="filter_all">All</button>
+      <button data-filter="en">English</button>
+      <button data-filter="ja">日本語</button>
+      <button data-filter="zh">中文</button>
+    </div>
 
-    <section class="home-links">
-      <div class="link-item">
-        <a href="essays.html" data-i18n="nav_essays">Essays</a>
-        <span class="link-desc" data-i18n="home_essays_desc">— Thoughts, in several languages.</span>
-      </div>
-      <div class="link-item">
-        <a href="quotes.html" data-i18n="nav_quotes">Quotes</a>
-        <span class="link-desc" data-i18n="home_quotes_desc">— Words worth keeping, and some reflections.</span>
-      </div>
-    </section>
+    <!--
+      The essay list is rendered dynamically from essays/manifest.json by main.js.
+      To add an essay: create the HTML file in essays/, then run python3 build.py.
+      No need to edit this file.
+    -->
+    <ul class="essay-list">
+      <li class="essay-list-hint">Loading…</li>
+    </ul>
   </main>
 
   <footer class="site-footer">

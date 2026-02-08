@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" class="lang-en">
+<!--
+  ESSAY TEMPLATE
+  ==============
+  1. Save this file with a new name, e.g. "my-essay-title.html"
+  2. Update the three <meta name="essay-*"> tags below (title, excerpt, lang)
+  3. Set lang="..." on the <article> tag to match the essay language (en, zh, ja)
+  4. Update the <title> tag
+  5. Write your content inside the <article> tag
+  6. Run: python3 build.py     (this updates the manifest; date is auto-computed)
+
+  MATH:   Use \( ... \) for inline math, $$ ... $$ for display math
+  QUOTES: Use <blockquote> with <footer> for attribution
+  NOTES:  Use <sup><a href="#fn1">1</a></sup> and a .footnotes section
+-->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- ↓↓↓ EDIT THESE THREE META TAGS ↓↓↓ -->
+  <meta name="essay-title" content="Essay Title">
+  <meta name="essay-excerpt" content="A brief description of the essay.">
+  <meta name="essay-lang" content="en">
+  <!-- ↑↑↑ -->
+  <title>Essay Title — A Curious Critter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Serif+SC:wght@400;600&family=Noto+Serif+JP:wght@400;600&display=swap">
+  <link rel="stylesheet" href="../css/style.css">
+  <!-- KaTeX for math rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body);"></script>
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="site-name">
+      <a href="../index.html" data-i18n="site_name">A Curious Critter</a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="../essays.html" data-i18n="nav_essays">Essays</a></li>
+      <li><a href="../quotes.html" data-i18n="nav_quotes">Quotes</a></li>
+      <li><button class="lang-toggle" onclick="toggleLang()" data-i18n="lang_toggle">中文</button></li>
+    </ul>
+  </nav>
+
+  <main>
+    <a href="../essays.html" class="back-link" data-i18n="back_essays">← Essays</a>
+
+    <!-- Set lang="..." on <article> to match the essay's language -->
+    <article class="article-content" lang="en">
+      <header class="article-header">
+        <h1>Essay Title</h1>
+        <div class="essay-meta" id="essay-date"><!-- auto-filled from manifest.json --></div>
+      </header>
+
+      <p>Your opening paragraph here.</p>
+
+      <h2>Section Heading</h2>
+
+      <p>More content here. You can use <em>emphasis</em> and <strong>bold</strong>.</p>
+
+      <!-- Inline math: -->
+      <p>An inline formula like \(E = mc^2\) sits within the text.</p>
+
+      <!-- Display math: -->
+      <p>A displayed equation gets its own block:</p>
+      $$\int_{-\infty}^{\infty} e^{-x^2}\, dx = \sqrt{\pi}$$
+
+      <!-- Block quote with citation: -->
+      <blockquote>
+        <p>A profound thought from someone wise.</p>
+        <footer>Author, <cite>Source Title</cite></footer>
+      </blockquote>
+
+      <!-- Footnote reference: -->
+      <p>A claim that needs a source.<sup><a href="#fn1" id="fnref1">1</a></sup></p>
+
+      <!-- Footnotes section: -->
+      <section class="footnotes">
+        <ol>
+          <li id="fn1">
+            Your footnote text here. <a href="#fnref1">↩</a>
+          </li>
+        </ol>
+      </section>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026</p>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
