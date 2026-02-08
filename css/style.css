@@ -99,6 +99,7 @@ html.lang-zh body {
 }
 
 /* Site chrome headings — display font only in Chinese mode */
+html.lang-zh .site-name a,
 html.lang-zh .page-header h1,
 html.lang-zh .hero h1 {
   font-family: var(--font-zh-display);
